@@ -9,8 +9,9 @@ export const UseCharacter = (id: number = 1) => {
 
     useEffect(() => {
         let cancel = false;
-        loadCharacter(id).then(res => setCharacter(res)).catch(res => console.log(res));
-
+        if (!cancel) {
+            loadCharacter(id).then(res => setCharacter(res)).catch(res => console.log(res));
+        }
 
         return () => {
             cancel = true;
