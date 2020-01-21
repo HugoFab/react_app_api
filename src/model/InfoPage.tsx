@@ -1,6 +1,6 @@
-import { Character } from "./character";
+import { Character } from "./Character";
 
-export type PageInfo = {
+export type InfoPage = {
   info: {
     count: number;
     pages: number;
