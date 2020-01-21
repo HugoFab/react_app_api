@@ -1,14 +1,4 @@
-export type pageload = {
-  info: {
-    count: number;
-    pages: number;
-    next: string;
-    prev: string;
-  };
-  results: Character[];
-};
-
-type Character = {
+export type Character = {
   id: number;
   status: string;
   species: string;
