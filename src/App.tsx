@@ -1,12 +1,13 @@
 import React from "react";
 import logo from "./logo.svg";
-import List from "./pages/List";
+import List from "./pages/list/List";
 import "./App.css";
+import MyRoute from "./Route";
 
 const App: React.FC = () => {
   return (
     <div>
-      <List />
+      <MyRoute/>
     </div>
   );
 };

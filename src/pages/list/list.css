@@ -1,0 +1,17 @@
+.list{
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.listItem{
+  margin: 25px;
+  flex: 1 0 300px;
+  width: 150px;
+  height: 150px;
+  border: #282c34 solid 1px;
+  box-shadow: 10px 5px 5px gray;
+}

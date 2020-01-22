@@ -17,4 +17,7 @@ export type Character = {
   episode: [string];
   url: string;
   created: string;
+
 };
+
+export type vide = null;
