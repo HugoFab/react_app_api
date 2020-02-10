@@ -1,17 +1,73 @@
 .list{
-  width: 50%;
+  width: 45%;
   margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+}
 
+.searchBarContainer{
+  width: 45%;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  display: flex;
+  flex:1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchIcon{
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.searchBar{
+  border-radius: 10px;
+  border: #282c34 1px solid;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .listItem{
+  background-color: brown;
   margin: 25px;
   flex: 1 0 300px;
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border: #282c34 solid 1px;
   box-shadow: 10px 5px 5px gray;
+}
+
+.buttonContainer{
+  display:flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button{
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.nextPreviousButton{
+  width: 45%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }

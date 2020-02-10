@@ -12,6 +12,9 @@ export default function MyRoute() {
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <Switch>
+              <Route path="/character?name=:name&page=:page">
+                <ListCharacter/>
+              </Route>
                 <Route path="/characters?page=:page">
                     <ListCharacter/>
                 </Route>

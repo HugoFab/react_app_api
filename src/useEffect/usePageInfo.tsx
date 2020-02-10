@@ -1,28 +1,27 @@
 import { useState, useEffect } from "react";
-import { loadPageInfo } from "../network/LoadPageInfo";
+import { loadPageInfo, loadCharacter } from "../network/LoadPageInfo";
 import { InfoPage } from "../model/InfoPage";
 
-export const usePageInfo = () => {
-  const [pageInfo, setpageInfo] = useState<InfoPage | null>(null);
-
-  const [loading, setLoading] = useState(false);
+export const GetSearchCharacter = (character: string | null, page: number) => {
+  const [characters, setCharacters] = useState<InfoPage | null>();
   const [error, setError] = useState(false);
-
-  const [page, setpage] = useState(0);
 
   useEffect(() => {
     let cancel = false;
-    setLoading(true);
-    if (!cancel) {
-      loadPageInfo()
-        .then(setpageInfo)
+    if (!cancel && character !== null) {
+      loadCharacter(character, page)
+        .then(setCharacters)
+        .catch(() => setError(true));
+    }else if(character === null){
+      loadPageInfo(page)
+        .then(setCharacters)
         .catch(() => setError(true));
     }
 
     return () => {
       cancel = true;
     };
-  }, []);
+  }, [character, page]);
 
-  return pageInfo;
+  return characters;
 };

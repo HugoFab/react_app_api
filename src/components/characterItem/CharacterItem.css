@@ -2,5 +2,21 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  background-color: #61dafb;
 }
+
+.imageContainer{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.loaderContainer{
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loader{
+  color: #fff;
+}
+

@@ -1,37 +1,64 @@
-import React from "react";
-import {usePageInfo} from "../../useEffect/usePageInfo";
+import React, {useRef, useState} from "react";
+import {GetSearchCharacter} from "../../useEffect/usePageInfo";
 import {Link} from "react-router-dom";
 import "./list.css"
 import CharacterItem from '../../components/characterItem/CharacterItem'
 import ArrowButton from '../../components/ArrowButton'
 import useQuery from "../../tools/useQuery";
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+import {SearchButton} from '../../components/SearchButton'
+import {NextPreviousButton} from '../../components/NextPreviousButton'
+import {CircularProgress} from "@material-ui/core";
 
-type ListCharacterProps= {
-  page: number
-}
+const ListCharacter = () => {
 
-const ListCharacter: React.FC<ListCharacterProps> = ({page}) => {
-  const data = usePageInfo();
+  let querry = useQuery();
+  const page: number | null = parseInt(querry.get('page') as string);
+  console.log('page: ' + page);
 
-  let querry = useQuery()
+  const character: string | null = querry.get('name');
+
+  const [searchTerms, setSearchTerms] = useState<string>(character !== null ? character : '');
+
+  const char = GetSearchCharacter(character, page);
 
   return (
-    <div>
-      <div className={"list"}>
-        {data && data.results.map(res =>
-          <Link to={`/character/${res.id}`}
-                style={{textDecoration: 'none', color: 'inherit'}}>
-            <div className={"listItem"}>
-              <CharacterItem character={res}/>
-            </div>
-          </Link>)}
+    <div className={'container'}>
+      <div className={'searchBarContainer'}>
+        <div className={'searchBar'}>
+          <div className={'searchIcon'}>
+            <SearchIcon/>
+          </div>
+          <InputBase
+            placeholder="Search…"
+            value={searchTerms}
+            onChange={(value) => setSearchTerms(value.target.value)}
+            inputProps={{'aria-label': 'search'}}
+          />
+          <SearchButton value={searchTerms}/>
+        </div>
       </div>
-      <div>
+      <NextPreviousButton previousDisable={page - 1 === 0}
+                          nextDisable={page === char?.info.pages}
+                          currentPage={page} characterName={character}/>
+      <div className={"list"}>
         {
-          data !== null &&
-          <ArrowButton value={"<"} index={page}/>
+          character !== undefined && char && char.results.map(res =>
+            <div key={res.id}>
+              <Link to={`/character/${res.id}`}
+                    style={{textDecoration: 'none', color: 'inherit'}}>
+                <div className={"listItem"}>
+                    <CharacterItem character={res}/>
+                </div>
+              </Link>
+            </div>
+          )
         }
       </div>
+      <NextPreviousButton previousDisable={page - 1 === 0}
+                          nextDisable={page === char?.info.pages}
+                          currentPage={page} characterName={character}/>
     </div>
   )
 };
