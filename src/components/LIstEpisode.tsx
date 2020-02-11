@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Character } from "../model/character";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -7,21 +7,27 @@ import Typography from "@material-ui/core/Typography";
 import { cardViewDetailsStyle } from "../styles/cardViewListeEpisodeStyle";
 import { useEpisode } from "../useEffect/useEpisode";
 import { Episode } from "../model/episode";
+import { url } from "inspector";
+import { fecthEpisode } from "../network/loadEpisode";
 
 export type ListEpisodeProps = {
   currentCharacter: Character | null;
 };
 
-const loadEpisode = (character: Character | null): Array<Episode> => {
-  var episodes: Array<Episode> = [];
-  if (character) {
-    character.episode.map(url => episodes.push(useEpisode(url)));
-  }
-  return episodes;
-};
-
 const ListEpisode: React.FC<ListEpisodeProps> = ({ currentCharacter }) => {
   const style = cardViewDetailsStyle();
+
+  const [listEpisode, setListEpisode] = useState<Array<Episode>>();
+
+  if (currentCharacter) {
+    fecthEpisode(currentCharacter.episode).then((res: Array<Episode>) =>
+      setListEpisode(res)
+    );
+  }
+
+  // currentCharacter?.episode.forEach(url => {
+  //   listEpisode.push(useEpisode(url)!!);
+  // });
 
   return (
     <Card className={style.card}>
@@ -32,11 +38,8 @@ const ListEpisode: React.FC<ListEpisodeProps> = ({ currentCharacter }) => {
 
         <Typography className={style.pos} color="textSecondary">
           <div className="listCara">
-            {currentCharacter &&
-              currentCharacter.episode.map((url: any) => (
-                <div>{useEpisode(url)}</div>
-              ))}
-            }
+            {listEpisode &&
+              listEpisode.map(episode => <div>{episode.name}</div>)}
           </div>
         </Typography>
       </CardContent>

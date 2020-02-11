@@ -14,7 +14,7 @@ export const useEpisode = (url: string) => {
     return () => {
       cancel = true;
     };
-  }, []);
+  }, [url]);
 
   return episode;
 };
