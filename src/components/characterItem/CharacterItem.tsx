@@ -38,7 +38,7 @@ const CharacterItem: React.FC<characterProps> = ({character}) => {
           alt=""
         />
       </div>
-      <div style={{textAlign: 'center', margin: "auto"}}>
+      <div style={{textAlign: 'center', margin: "auto", color: 'white', marginTop: 5}}>
         {character.name}
       </div>
     </div>
