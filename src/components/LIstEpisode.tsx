@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { cardViewDetailsStyle } from "../styles/cardViewListeEpisodeStyle";
-import { useEpisode } from "../useEffect/useEpisode";
+
 import { Episode } from "../model/episode";
 import { url } from "inspector";
 import { fetchEpisode } from "../network/loadEpisode";
@@ -25,9 +25,7 @@ const ListEpisode: React.FC<ListEpisodeProps> = ({ currentCharacter }) => {
     );
   }
 
-  // currentCharacter?.episode.forEach(url => {
-  //   listEpisode.push(useEpisode(url)!!);
-  // });
+
 
   return (
     <Card className={style.card}>
@@ -37,7 +35,7 @@ const ListEpisode: React.FC<ListEpisodeProps> = ({ currentCharacter }) => {
         </Typography>
 
         <Typography className={style.pos} color="textSecondary">
-          <div className="listCara">
+          <div className={style.text}>
             {listEpisode &&
               listEpisode.map(episode => <div>{episode.name}</div>)}
           </div>

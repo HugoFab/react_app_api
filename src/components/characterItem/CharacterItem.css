@@ -4,6 +4,14 @@
   margin: auto;
 }
 
+.characterText{
+  text-align: center;
+  margin: auto; 
+  color: #3f51b5;
+  margin-top: 5px;
+  font-weight: bold;
+  }
+
 .imageContainer{
   text-align: center;
   justify-content: center;
@@ -17,6 +25,6 @@
 }
 
 .loader{
-  color: #fff;
+  color: #3f51b5;
 }
 

@@ -41,13 +41,15 @@
 }
 
 .listItem{
-  background-color: brown;
+  background-color:rgb(145, 144, 144);
   margin: 25px;
   flex: 1 0 300px;
   width: 160px;
+  color: #3f51b5;
   height: 160px;
-  border: #282c34 solid 1px;
-  box-shadow: 10px 5px 5px gray;
+  border: rgb(145, 144, 144) solid 1px;
+  border-radius: 15px;
+  box-shadow: 2px 5px 5px gray;
 }
 
 .buttonContainer{
