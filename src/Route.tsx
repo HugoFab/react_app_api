@@ -2,7 +2,7 @@ import React from 'react'
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ListCharacter from "./pages/list/List";
-import CharacterDetail from "./pages/CharacterDetail";
+import CharacterDetail from "./pages/characterDetail/CharacterDetail";
 
 export default function MyRoute() {
 

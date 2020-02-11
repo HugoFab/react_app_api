@@ -1,10 +1,10 @@
 import React from "react";
-import {UseCharacter} from "../useEffect/UseCharacter";
+import {UseCharacter} from "../../useEffect/UseCharacter";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import {cardViewDetailsStyle} from "../styles/cardViewDetailsStyle";
-import ListEpisode from "../components/LIstEpisode";
+import {cardViewDetailsStyle} from "../../styles/cardViewDetailsStyle";
+import ListEpisode from "../../components/LIstEpisode";
 import {
   useParams
 } from "react-router-dom";
@@ -21,7 +21,7 @@ export default function CharacterDetail() {
     <div>
       {
         character !== null && character !== undefined &&
-        <div>
+        <div className={'detailContainer'}>
             <Card className={style.card}>
                 <CardContent>
                     <Typography className={style.title} color="textSecondary">
