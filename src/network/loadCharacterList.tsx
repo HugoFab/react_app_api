@@ -1,5 +1,5 @@
 import {InfoPage} from "../model/InfoPage";
-import {Character} from "../model/char";
+import {Character} from "../model/character";
 
 export const loadCharacterList = () => {
     return fetch("https://rickandmortyapi.com/api/character/").then<InfoPage>(res =>

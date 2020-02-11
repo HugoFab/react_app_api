@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { loadPageInfo, loadCharacter } from "../network/LoadPageInfo";
 import { InfoPage } from "../model/InfoPage";
-import {Character} from "../model/char";
+import {Character} from "../model/character";
 
 export const GetSearchCharacter = (characterName: string | null, page: number): {characters: InfoPage | undefined, loading: boolean} => {
   const [characters, setCharacters] = useState<InfoPage>();

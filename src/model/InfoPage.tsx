@@ -1,4 +1,4 @@
-import { Character } from "./char";
+import { Character } from "./character";
 
 export type InfoPage = {
   info: {

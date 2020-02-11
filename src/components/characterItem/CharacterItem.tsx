@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
 import {CircularProgress} from "@material-ui/core";
 import "./CharacterItem.css"
-import {Character} from '../../model/char'
+import {Character} from '../../model/character'
 import red from '@material-ui/core/colors/red';
 
 type characterProps = {

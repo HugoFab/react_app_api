@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react'
-import {Character} from "../model/char"
+import {Character} from "../model/character"
 
 import {loadCharacter} from '../network/loadCharacterList'
 
-export const UseCharacter = (id: number = 1) => {
+export const UseCharacter = (id: number) => {
 
     const [character, setCharacter] = useState<Character | null>(null);
+    console.log('id:' + id);
 
     useEffect(() => {
         let cancel = false;

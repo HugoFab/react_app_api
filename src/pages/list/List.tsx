@@ -14,7 +14,6 @@ const ListCharacter = () => {
 
   let querry = useQuery();
   const page: number | null = parseInt(querry.get('page') as string);
-  console.log('page: ' + page);
 
   const character: string | null = querry.get('name');
 
