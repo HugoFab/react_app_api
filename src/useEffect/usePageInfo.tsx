@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
 import { loadPageInfo, loadCharacter } from "../network/LoadPageInfo";
 import { InfoPage } from "../model/InfoPage";
+import {Character} from "../model/char";
 
-export const GetSearchCharacter = (character: string | null, page: number) => {
-  const [characters, setCharacters] = useState<InfoPage | null>();
+export const GetSearchCharacter = (characterName: string | null, page: number): {characters: InfoPage | undefined, loading: boolean} => {
+  const [characters, setCharacters] = useState<InfoPage>();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let cancel = false;
     setLoading(true);
-    if (!cancel && character !== null) {
-      loadCharacter(character, page)
+    if (!cancel && characterName !== null) {
+      loadCharacter(characterName, page)
         .then((value) => {
           setCharacters(value);
           setLoading(false)
         } )
         .catch(() => setError(true));
-    }else if(character === null){
+    }else if(characterName === null){
       loadPageInfo(page)
         .then((value) => {
           setCharacters(value);
@@ -29,7 +30,7 @@ export const GetSearchCharacter = (character: string | null, page: number) => {
     return () => {
       cancel = true;
     };
-  }, [character, page]);
+  }, [characterName, page]);
 
   return {characters, loading};
 };

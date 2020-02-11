@@ -1,9 +1,8 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import {GetSearchCharacter} from "../../useEffect/usePageInfo";
 import {Link} from "react-router-dom";
 import "./list.css"
 import CharacterItem from '../../components/characterItem/CharacterItem'
-import ArrowButton from '../../components/ArrowButton'
 import useQuery from "../../tools/useQuery";
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';

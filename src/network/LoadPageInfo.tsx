@@ -11,3 +11,4 @@ export const loadCharacter = (character: string, page: number) => {
     res => res.json()
   )
 };
+

@@ -2,6 +2,7 @@ import React from 'react'
 
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ListCharacter from "./pages/list/List";
+import CharacterDetail from "./pages/CharacterDetail";
 
 export default function MyRoute() {
 
@@ -19,7 +20,7 @@ export default function MyRoute() {
                     <ListCharacter/>
                 </Route>
                 <Route path="/character/:id">
-                    <Character/>
+                    <CharacterDetail/>
                 </Route>
               <Route path="/">
                 <ListCharacter/>
@@ -31,5 +32,4 @@ export default function MyRoute() {
     );
 }
 
-const Character = () => null;
 

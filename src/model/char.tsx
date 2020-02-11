@@ -19,5 +19,3 @@ export type Character = {
   created: string;
 
 };
-
-export type vide = null;
