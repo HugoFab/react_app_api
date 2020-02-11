@@ -1,5 +1,5 @@
 .list{
-  width: 45%;
+  width: 50%;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -8,7 +8,7 @@
 }
 
 .searchBarContainer{
-  width: 45%;
+  width: 50%;
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
@@ -64,10 +64,17 @@
 }
 
 .nextPreviousButton{
-  width: 45%;
+  width: 50%;
   margin: 10px auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loaderContainer{
+  width: 50%;
+  margin: auto;
+  display: flex;
   justify-content: center;
 }

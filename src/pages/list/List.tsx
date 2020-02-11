@@ -21,7 +21,7 @@ const ListCharacter = () => {
 
   const [searchTerms, setSearchTerms] = useState<string>(character !== null ? character : '');
 
-  const char = GetSearchCharacter(character, page);
+  const {characters, loading} = GetSearchCharacter(character, page);
 
   return (
     <div className={'container'}>
@@ -40,11 +40,18 @@ const ListCharacter = () => {
         </div>
       </div>
       <NextPreviousButton previousDisable={page - 1 === 0}
-                          nextDisable={page === char?.info.pages}
+                          nextDisable={page === characters?.info.pages}
                           currentPage={page} characterName={character}/>
+      {
+        loading &&
+        <div className={'loaderContainer'}>
+            <CircularProgress />
+        </div>
+      }
+      { !loading &&
       <div className={"list"}>
         {
-          character !== undefined && char && char.results.map(res =>
+          character !== undefined && characters && characters.results.map(res =>
             <div key={res.id}>
               <Link to={`/character/${res.id}`}
                     style={{textDecoration: 'none', color: 'inherit'}}>
@@ -55,9 +62,9 @@ const ListCharacter = () => {
             </div>
           )
         }
-      </div>
+      </div>}
       <NextPreviousButton previousDisable={page - 1 === 0}
-                          nextDisable={page === char?.info.pages}
+                          nextDisable={page === characters?.info.pages}
                           currentPage={page} characterName={character}/>
     </div>
   )
