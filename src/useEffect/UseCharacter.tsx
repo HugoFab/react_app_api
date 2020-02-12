@@ -6,18 +6,26 @@ import {loadCharacter} from '../network/loadCharacterList'
 export const UseCharacter = (id: number) => {
 
     const [character, setCharacter] = useState<Character | null>(null);
-    console.log('id:' + id);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         let cancel = false;
+
         if (!cancel) {
-            loadCharacter(id).then(res => setCharacter(res)).catch(res => console.log(res));
+            setLoading(true);
+            loadCharacter(id).then((res) =>
+            {
+              setCharacter(res);
+              setLoading(false);
+            }
+            ).catch(res => console.log(res));
         }
 
         return () => {
             cancel = true;
         };
-    }, []);
+    }, [id]);
 
-    return character
+    return {character, loading}
 };
